@@ -1,0 +1,23 @@
+{
+  "name": "md-report-style",
+  "version": "1.0.0",
+  "description": "CSS style for reports",
+  "main": "css/index.css",
+  "scripts": {
+    "build":"stylus ./styl -c -o ./css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coinspect/md-report-style.git"
+  },
+  "author": "emi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coinspect/md-report-style/issues"
+  },
+  "homepage": "https://github.com/coinspect/md-report-style#readme",
+  "devDependencies": {
+    "stylus": "^0.58.1"
+  }
+}

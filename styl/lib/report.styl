@@ -1,0 +1,63 @@
+@require 'vars.styl'
+body
+  font $default-font
+
+pre, code, p, span, div
+  width auto
+  max-width 100%
+  overflow-wrap break-word
+
+code
+  font $monospace-font
+  font-size 0.8em
+  white-space pre-wrap
+
+.finding, .data-block
+  margin 1em 1em 5em 1em
+/*   border-color gray
+  border-style dashed none
+  border-width 1px */
+  
+
+.finding-header
+  color gray
+  dt
+    text-transform capitalize 
+
+  dd
+    break-before avoid
+    font-weight bold
+  .field-fixed
+    dd[data-value=false]
+      visibility hidden
+      width 0px
+      &:before
+        content '✘'
+        visibility visible
+        color $high-color
+    dd[data-value=true]
+      visibility hidden
+      width 0px
+      &:before
+        content '✔'
+        visibility visible
+        color $low-color
+
+
+*[data-value=info],*[data-value=low],*[data-value=medium],*[data-value=high]
+  text-transform uppercase
+
+*[data-value=info]
+  color $info-color
+
+*[data-value=low]
+  color $low-color
+
+*[data-value=medium]
+  color $medium-color
+
+*[data-value=high]
+  color $high-color
+
+.error
+  color error
