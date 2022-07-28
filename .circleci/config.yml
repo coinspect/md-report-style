@@ -16,3 +16,6 @@ jobs:
       - run:
           name: "Build CSS files"
           command: pnpm run build
+      - store_artifacts:
+          path: css
+          destination: css
