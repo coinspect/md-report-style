@@ -2,7 +2,9 @@
   "name": "md-report-style",
   "version": "1.0.0",
   "description": "CSS style for reports",
-  "main": "css/index.css",
+  "files": [
+    "css/*.css"
+  ],
   "scripts": {
     "build": "stylus ./styl -c --include-css -o ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
