@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "CSS style for reports",
   "files": [
-    "css/*.css"
+    "css/*.css",
+    "styl/*.styl"
   ],
   "scripts": {
     "build": "stylus ./styl -c --include-css -o ./css",
