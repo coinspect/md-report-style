@@ -1,6 +1,6 @@
 {
   "name": "md-report-style",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CSS style for reports",
   "files": [
     "css/*.css",
