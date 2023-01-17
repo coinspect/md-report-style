@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "stylus ./styl -c --include-css -o ./css",
+    "watch": "stylus ./styl -w -c --include-css -o ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
