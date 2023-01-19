@@ -1,0 +1,5 @@
+@require 'vars.styl'
+.finding-resume
+    for $r in 'high' 'medium' 'low'
+        .field-{$r}
+            color convert("$" + $r + "-color")

@@ -1,0 +1,90 @@
+
+@require 'vars.styl'
+
+$finding-deco-s = 1.25em
+$finding-deco-m = 0.75em
+
+fixed-field(value)
+    visibility hidden
+    width 0px
+
+    if (value)
+        &:before
+            content $icon-fixed
+            visibility visible
+            color $low-color
+    else
+        &:before
+            content $icon-not-fixed
+            visibility visible
+            color $high-color
+
+.finding-header
+    color gray
+    margin-left $finding-deco-m
+    margin-top 1em
+
+    dt
+        flex-basis 10%
+        text-transform capitalize
+        font-size 0.9em
+        margin 0
+        text-align left
+
+    dd
+        break-before avoid
+        font-weight bold
+        align-items flex-start
+        text-align left
+
+    .field-fixed
+        dd[data-value=false]
+            fixed-field(false)
+
+        dd[data-value=true]
+            fixed-field(true)
+
+
+
+.finding
+    h3 // Finding title
+        text-indent -($finding-deco-s + $finding-deco-m)
+        padding .5em 0
+        margin 0
+        padding-left $finding-deco-s
+        font-weight bold
+        border-width $border-thin
+        border-style dashed none dashed none
+        
+
+        &::before
+            right 0
+            content ''
+            display inline-block
+            width $finding-deco-s
+            height @width
+            border-radius: (@width / 8)
+            margin-right $finding-deco-m
+            position relative
+            vertical-align middle
+
+.field-fixed[data-value=false]
+    fixed-field(false)
+
+.field-fixed[data-value=true]
+    fixed-field(true)
+
+
+// Risk Colors
+
+for $r in $risks
+    color = convert("$"+ $r + '-color')
+    .finding[data-total-risk={$r}] 
+        h3
+            border-color color
+            &::before
+                background color
+            
+    
+        .finding-header
+            border-color color

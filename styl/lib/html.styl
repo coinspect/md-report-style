@@ -1,8 +1,13 @@
 
-.report 
-  h1,h2,h3,h4,h5,h6
+.report
+  h1, h2, h3, h4, h5, h6, .title, .subtitle
     color $heading-color
     font-weight bold
+    margin 2em 0
+  .title
+    font-size xx-large
+  .subtitle
+    font-size x-large
 
   a
     text-decoration none
@@ -17,8 +22,9 @@
 
   dl div
     display flex
-    flex-flow  row wrap
+    flex-flow row wrap
     flex-basis 100%
+
   dt
     flex-basis 20%
     padding 2px 4px
@@ -29,3 +35,20 @@
     flex-grow 1
     margin 0
     padding 2px 4px
+
+  table
+    margin 2em 0
+    th
+      color $sub-title-color
+
+    td, th
+      text-align center
+
+      &:before
+        display block
+        text-align center
+        vertical-align middle
+        margin-top .5em
+
+    th
+      text-transform capitalize

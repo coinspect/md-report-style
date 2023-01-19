@@ -1,15 +1,31 @@
 @require 'vars.styl'
+@require'finding.styl'
 @require'code.styl'
+@require'finding-list.styl'
+@require'finding-resume.styl'
+@require'report-header.styl'
 
 .report
   font $default-font
   background white
   color black
+  margin 2em
+
+/*   h1,h2,h3,h4,h5,h6
+    font-family  $heading-font-family
+    font-weight 800 */
 
   pre, code, p, span, div
     width auto
     max-width 100%
     overflow-wrap break-word
+  
+  table
+    width 100%
+    tr
+    th,td
+      text-align center
+      padding 0 0 1em 0 
 
   code
     font $monospace-font
@@ -22,32 +38,7 @@
     border-style dashed none
     border-width 1px */
     
-
-  .finding-header
-    color gray
-    dt
-      text-transform capitalize 
-
-    dd
-      break-before avoid
-      font-weight bold
-    .field-fixed
-      dd[data-value=false]
-        visibility hidden
-        width 0px
-        &:before
-          content '✘'
-          visibility visible
-          color $high-color
-      dd[data-value=true]
-        visibility hidden
-        width 0px
-        &:before
-          content '✔'
-          visibility visible
-          color $low-color
-
-
+    
   *[data-value=info],*[data-value=low],*[data-value=medium],*[data-value=high]
     text-transform uppercase
 
@@ -65,3 +56,14 @@
 
   .error
     color error
+
+  .table-of-contents
+    ul
+      li
+        list-style none
+        margin .5em 0 0 0
+        a
+          color $link-color
+          background none
+          &:hover
+            color $hover-color

@@ -1,0 +1,44 @@
+@require 'vars.styl'
+@require 'mixins.styl'
+
+header-border =  $border-color $border-style $border-thick
+
+.report-header
+    border header-border
+    display grid
+    padding 3em 2em 0 2em
+    border-style solid none none none
+    .logo
+        display flex
+        justify-content center
+        margin 0 0 3em 0
+        width 100%
+        svg
+          width 80%
+    .title, .subtitle
+      display flex
+      justify-content flex-end
+      margin 0
+    .foot
+        color $light-gray-color
+        margin 3em 0 .5em 0
+        border header-border  
+        border-style solid none none none     
+        padding .5em 0    
+        ul
+          flex-list()
+          font-size 0.8em
+
+          li
+            &::before
+              margin 0 .5em 0 0
+
+          li[data-field=version]
+            align-self flex-start
+            &:before
+              content:'Version:'
+
+          li[data-field=customerName]
+            margin 0 0 0 0
+            &:before
+              content:'Prepared for:'
