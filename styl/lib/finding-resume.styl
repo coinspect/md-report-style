@@ -1,5 +1,29 @@
 @require 'vars.styl'
+
 .finding-resume
+    margin 5em 2em
+    table
+        border-collapse collapse
+
     for $r in 'high' 'medium' 'low'
-        .field-{$r}
-            color convert("$" + $r + "-color")
+        tr.open .field-{$r}, tr.open .field-{$r} .label, th.field-{$r}
+            color convert('$' + $r + '-color')
+
+    .label
+        color $light-gray-color
+        font-size 0.8em
+
+    .value
+        font-size 1.25em
+
+    tr.open
+        .value
+            font-size 1.5em
+            font-weight bold
+
+    tr.open, tr.reported
+         border $table-border
+    tr.open
+         border-style solid none none none
+    tr.reported
+        border-style solid none solid none

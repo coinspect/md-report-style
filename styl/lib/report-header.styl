@@ -1,10 +1,10 @@
 @require 'vars.styl'
 @require 'mixins.styl'
 
-header-border =  $border-color $border-style $border-thick
+
 
 .report-header
-    border header-border
+    border $header-border
     display grid
     padding 3em 2em 0 2em
     border-style solid none none none
@@ -22,7 +22,7 @@ header-border =  $border-color $border-style $border-thick
     .foot
         color $light-gray-color
         margin 3em 0 .5em 0
-        border header-border  
+        border $header-border  
         border-style solid none none none     
         padding .5em 0    
         ul
