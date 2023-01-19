@@ -4,7 +4,8 @@
   "description": "CSS style for reports",
   "files": [
     "css/*.css",
-    "styl/*.styl"
+    "styl/*.styl",
+    "styl/lib/*"
   ],
   "scripts": {
     "build": "stylus ./styl -c --include-css -o ./css",
