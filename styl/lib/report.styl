@@ -36,18 +36,29 @@
   border-style dashed none
   border-width 1px */
   *[data-value=info], *[data-value=low], *[data-value=medium], *[data-value=high]
-    text-transform uppercase
+    text-transform capitalize
 
-  *[data-value=info]
-    color $info-color
+  .field-risk, .finding-list
 
-  *[data-value=low]
+    *[data-value=info]
+      color $info-color
+
+    *[data-value=low]
+      color $low-color
+
+    *[data-value=medium]
+      color $medium-color
+
+    *[data-value=high]
+      color $high-color
+
+  *[data-value=√]
     color $low-color
 
-  *[data-value=medium]
+  *[data-value=⚠]
     color $medium-color
 
-  *[data-value=high]
+  *[data-value=X]
     color $high-color
 
   .error

@@ -79,7 +79,7 @@ fixed-field(value)
 
 for $r in $risks
     color = convert("$"+ $r + '-color')
-    .finding[data-total-risk={$r}] 
+    .finding[data-risk={$r}] 
         h3
             border-color color
             &::before
