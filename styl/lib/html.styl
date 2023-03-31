@@ -1,4 +1,7 @@
 
+@require 'vars.styl'
+@require 'mixins.styl'
+
 .report
   h1, h2, h3, h4, h5, h6, .title, .subtitle
     color $heading-color
@@ -11,6 +14,7 @@
 
   a
     text-decoration none
+    links()
 
   strong
     color gray
