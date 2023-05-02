@@ -3,12 +3,16 @@
 @require 'mixins.styl'
 
 .report
+  line-height normal
+
   h1, h2, h3, h4, h5, h6, .title, .subtitle
     color $heading-color
     font-weight bold
-    margin 2em 0
+    margin 2em 0 1em 0
+
   .title
     font-size xx-large
+
   .subtitle
     font-size x-large
 
@@ -42,6 +46,7 @@
 
   table
     margin 2em 0
+
     th
       color $sub-title-color
 
@@ -52,7 +57,7 @@
         display block
         text-align center
         vertical-align middle
-        margin-top .5em
+        margin-top 0.5em
 
     th
       text-transform capitalize
