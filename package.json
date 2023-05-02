@@ -2,14 +2,15 @@
   "name": "md-report-style",
   "version": "1.0.2",
   "description": "CSS style for reports",
+  "type": "module",
   "files": [
     "css/*.css",
     "styl/*.styl",
     "styl/lib/*"
   ],
   "scripts": {
-    "build": "stylus ./styl -c --include-css -o ./css",
-    "watch": "stylus ./styl -w -c --include-css -o ./css",
+    "build": "node fontConverter.js && stylus ./styl -c --include-css -o ./css",
+    "watch": "node fontConverter.js && stylus ./styl -w -c --include-css -o ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +26,8 @@
   "devDependencies": {
     "highlight.js": "^11.6.0",
     "stylus": "^0.58.1"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.1"
   }
 }
