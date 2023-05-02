@@ -80,9 +80,15 @@
   h2
     page-break-before always
 
+ 
+
   .finding
     break-inside avoid
   
+   h2+.finding
+    break-inside auto !important
+
+
   .language-tech-bits
     font $monospace-font
     //text-align justify
