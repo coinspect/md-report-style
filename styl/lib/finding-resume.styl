@@ -2,6 +2,7 @@
 
 .finding-resume
     margin 5em 2em
+
     table
         border-collapse collapse
 
@@ -12,6 +13,7 @@
     .label
         color $light-gray-color
         font-size 0.8em
+        text-transform capitalize
 
     .value
         font-size 1.25em
@@ -22,8 +24,10 @@
             font-weight bold
 
     tr.open, tr.reported
-         border $table-border
+        border $table-border
+
     tr.open
-         border-style solid none none none
+        border-style solid none none none
+
     tr.reported
         border-style solid none solid none
