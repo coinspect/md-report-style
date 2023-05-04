@@ -1,5 +1,6 @@
 
 @require 'vars.styl'
+@require 'mixins.styl'
 
 $finding-deco-s = 1.25em
 $finding-deco-m = 0.75em
@@ -37,6 +38,9 @@ fixed-field(value)
         align-items flex-start
         text-align left
         white-space pre
+
+    .field-location dd
+        monospacedText()
 
     .field-fixed
         dd[data-value=false]

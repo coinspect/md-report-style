@@ -4,6 +4,7 @@
 @require 'finding-list.styl'
 @require 'finding-resume.styl'
 @require 'report-header.styl'
+@require 'mixins.styl'
 
 .report
   font $default-font
@@ -28,8 +29,7 @@
       padding 0 0 1em 0
 
   code
-    font $monospace-font
-    font-size 0.8em
+    monospacedText()
     white-space pre-wrap
 
   .finding, .data-block
