@@ -76,11 +76,13 @@
         a
           links()
           background none
+    page-break-after always
 
   h2
     page-break-before always
 
- 
+  h2:first-of-type
+    page-break-before auto
 
   .finding
     break-inside avoid
