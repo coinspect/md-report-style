@@ -9,7 +9,7 @@
     "styl/lib/*"
   ],
   "scripts": {
-    "build": "node fontConverter.js && stylus ./styl -c --include-css -o ./css",
+    "build": "node fontConverter.js && stylus ./styl -c --include-css -o ./css && cp -r ./svg ./css",
     "watch": "node fontConverter.js && stylus ./styl -w -c --include-css -o ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
