@@ -20,7 +20,7 @@ fixed-field(value)
             visibility visible
             color $high-color
 
-.finding-header
+.finding-header 
     color gray
     margin-left $finding-deco-m
     margin-top 1em
@@ -65,18 +65,21 @@ fixed-field(value)
         padding-left $finding-deco-s
         font-weight bold
         border-width $border-thin
-        border-style dashed none dashed none
+        border-style solid none solid none
 
         &::before
             right 0
             content ''
             display inline-block
-            width $finding-deco-s
+            width 1em
             height @width
             border-radius: (@width / 8)
+            margin-left @width
             margin-right $finding-deco-m
             position relative
             vertical-align middle
+            mask-size cover
+            -webkit-mask-size cover
 
 .field-fixed[data-value=false]
     fixed-field(false)
@@ -91,9 +94,16 @@ for $r in $risks
     .finding[data-risk={$r}]
         h3
             border-color color
-
             &::before
-                background color
+                background-color color
+
 
         .finding-header
             border-color color
+// Status icon
+for $s in $status
+    $svg = 'svg/' + $s + '.svg'
+
+    .finding[data-status={$s}]
+        h3
+            svgIcon()

@@ -19,3 +19,8 @@ links()
 monospacedText()
     font $monospace-font
     font-size 0.8em
+
+svgIcon()
+    &::before
+        mask-image url($svg)
+        -webkit-mask-image url($svg)
