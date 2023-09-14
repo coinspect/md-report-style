@@ -20,7 +20,18 @@ monospacedText()
     font $monospace-font
     font-size 0.8em
 
-svgIcon()
+svgIcon($svg,$color)
     &::before
+        content ''
         mask-image url($svg)
         -webkit-mask-image url($svg)
+        mask-size cover
+        -webkit-mask-size cover
+        display inline-block
+        width 1em
+        height @width
+        position relative
+        background-color $color
+
+
+

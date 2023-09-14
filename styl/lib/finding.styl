@@ -78,8 +78,6 @@ fixed-field(value)
             margin-right $finding-deco-m
             position relative
             vertical-align middle
-            mask-size cover
-            -webkit-mask-size cover
 
 .field-fixed[data-value=false]
     fixed-field(false)
@@ -87,23 +85,25 @@ fixed-field(value)
 .field-fixed[data-value=true]
     fixed-field(true)
 
-// Risk Colors
-for $r in $risks
-    color = convert('$' + $r + '-color')
-
-    .finding[data-risk={$r}]
-        h3
-            border-color color
-            &::before
-                background-color color
-
-
-        .finding-header
-            border-color color
-// Status icon
+// Status icon & color
 for $s in $status
+    $color = convert('$' + $s + '-color')
     $svg = 'svg/' + $s + '.svg'
+
+    .icon[data-status={$s}]
 
     .finding[data-status={$s}]
         h3
-            svgIcon()
+            border-color $color
+            svgIcon($svg,$color)
+
+        .finding-header
+            border-color $color
+
+    .field-status[data-value={$s}]  
+        svgIcon($svg,$color)
+        visibility hidden
+        font-size 0px
+        &::before
+            font-size 1rem
+            visibility visible
