@@ -1,9 +1,11 @@
 
 @require 'vars.styl'
 @require 'mixins.styl'
+@require 'findingStatusChart.styl'
 
 $finding-deco-s = 1.25em
 $finding-deco-m = 0.75em
+
 
 fixed-field(value)
     visibility hidden
@@ -24,6 +26,13 @@ fixed-field(value)
     color gray
     margin-left $finding-deco-m
     margin-top 1em
+    display grid
+    grid-template-columns 3fr 2fr
+    // flex-flow row wrap
+    
+    .finding-header-chart
+        svg
+            margin 2em 1em
 
     dt
         flex-basis 20%
@@ -87,8 +96,8 @@ fixed-field(value)
 
 // Status icon & color
 for $s in $status
-    $color = convert('$' + $s + '-color')
-    $svg = 'svg/' + $s + '.svg'
+    $color = colorFromStatus($s)
+    $svg = statusIcon($s)
 
     .icon[data-status={$s}]
 
@@ -99,7 +108,8 @@ for $s in $status
 
         .finding-header
             border-color $color
-
+            findingStatusChartStatus($s,$color)
+        
     .field-status[data-value={$s}]  
         svgIcon($svg,$color)
         visibility hidden
@@ -107,3 +117,13 @@ for $s in $status
         &::before
             font-size 1rem
             visibility visible
+    
+for $r in $risks
+    $color = colorFromRisk($r)
+    .finding[data-risk={$r}]
+        .finding-header
+            findingStatusChartRisk($r,$color)
+
+.field-resolution, .field-status, .field-risk
+    font-size 1.125em
+

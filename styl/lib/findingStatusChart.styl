@@ -1,0 +1,22 @@
+@require 'vars.styl'
+
+findingStatusChartStatus($status,$color)
+    .finding-header-chart
+        svg 
+            text
+                fill $gray-color
+            path, rect
+                fill $lligther-gray-color
+            *[id^='icon-'] *
+                fill $ligther-gray-color
+            [id^='icon-info-'] *
+                visibility hidden
+            *[id=\"icon-{$status}\"] *
+                fill $color
+
+
+findingStatusChartRisk($risk,$color)
+    .finding-header-chart
+        svg
+            *[id=\"vu-risk-{$risk}\"] *
+                fill $color

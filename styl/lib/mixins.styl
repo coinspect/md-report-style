@@ -26,6 +26,8 @@ svgIcon($svg,$color)
         mask-image url($svg)
         -webkit-mask-image url($svg)
         mask-size cover
+        -webkit-mask-color url($svg)
+        mask-color blue
         -webkit-mask-size cover
         display inline-block
         width 1em
@@ -35,3 +37,11 @@ svgIcon($svg,$color)
 
 
 
+colorFromStatus($status)
+    convert('$' + $status + '-color')
+
+statusIcon($status)
+    'svg/' + $status + '.svg'
+
+colorFromRisk($risk)
+    convert('$' + $risk + '-color')
