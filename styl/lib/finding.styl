@@ -33,7 +33,10 @@ fixed-field(value)
     .finding-header-chart
         svg
             margin 2em 1em
-
+            max-width 100%
+            height auto
+            text
+                font-family $default-font-family
     dt
         flex-basis 20%
         text-transform capitalize
@@ -100,6 +103,16 @@ for $s in $status
     $svg = statusIcon($s)
 
     .icon[data-status={$s}]
+    
+    .finding[data-risk='info']
+          *[id^='info-chart'] *
+            visibility visible
+          *[id^='gauge-'] *
+            visibility hidden
+        
+    .finding:not([data-risk='info'])
+         *[id^='info-chart'] *
+            visibility hidden
 
     .finding[data-status={$s}]
         h3

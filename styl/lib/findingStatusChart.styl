@@ -9,14 +9,28 @@ findingStatusChartStatus($status,$color)
                 fill $lligther-gray-color
             *[id^='icon-'] *
                 fill $ligther-gray-color
-            [id^='icon-info-'] *
+            *[id^='icon-info-'] *
                 visibility hidden
+            *[id^='icon-status-'] *, *[id^='txt-status-'] *
+                visibility hidden
+           * [id=\"icon-status-{$status}\"] *, * [id=\"txt-status-{$status}\"] *
+                visibility visible !important
+                fill $color !important
             *[id=\"icon-{$status}\"] *
                 fill $color
+              
+            
+                
 
 
 findingStatusChartRisk($risk,$color)
     .finding-header-chart
         svg
             *[id=\"vu-risk-{$risk}\"] *
+                fill $color
+            *[id^='pointer-'] *, *[id^='txt-risk-'] *
+                visibility hidden
+            *[id=\"pointer-{$risk}\"] *, *[id=\"txt-risk-{$risk}\"] *
+                visibility visible !important
+            *[id=\"gauge-{$risk}\"] *
                 fill $color
