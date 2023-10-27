@@ -74,9 +74,9 @@ fixed-field(value)
         text-indent -($finding-deco-s + $finding-deco-m)
         padding 0.5em 0
         margin 0
-        padding-left $finding-deco-s
+        // padding-left $finding-deco-s
         font-weight bold
-        border-width $border-thin
+        border-width $border-thicker
         border-style solid none solid none
 
         &::before
@@ -117,7 +117,7 @@ for $s in $status
     .finding[data-status={$s}]
         h3
             border-color $color
-            svgIcon($svg,$color)
+            // svgIcon($svg,$color)
 
         .finding-header
             border-color $color
