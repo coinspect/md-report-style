@@ -4,12 +4,14 @@
   "brand": "#e5b136",
   "label": "#46bd82",
   "info": "#d68292",
-  "warn": "#8f5761",
+  "warn": "#f1c252",
   "error": "#ad0424",
   "gray": "#666666",
   "blue": "#1155cc",
   "darkGray": "#434343",
   "lightGray":"#999999",
-  "ligtherGray":"#e8e6e6"
+  "ligtherGray":"#e8e6e6",
+  "medium":"#c8586d",
+  "low":"#e4abb6"
 }
 

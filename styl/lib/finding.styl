@@ -22,23 +22,64 @@ fixed-field(value)
             visibility visible
             color $high-color
 
+
 .finding-header 
     color gray
     margin-left $finding-deco-m
     margin-top 1em
-    display grid
-    grid-template-columns 3fr 2fr
-    // flex-flow row wrap
-    
-    .finding-header-chart
+    svg
+      max-width 100%
+      height auto
+
+    dt,dd
+        all unset
+        display flex
+        flex-basis 100%
+        margin 0
+        padding 0
+        height auto
+        border none
+        min-height 0
+
+    dt
+        color $light-gray-color
+        font-size .75em
+
+    // hidden fields
+    .field-status-icon, .field-risk-chart, .field-risk-data
+        >dt
+            display none
+
+    // strong fields
+    .field-status, .field-risk
+        font-size 1.25em
+    // header row
+    .fh-row
+        display grid
+        grid-template-columns repeat(auto-fit, minmax(max(240px,40vw), 1fr));
+    // header column
+    .fh-col
+        display flex
+        width auto
+        border-color $ligther-gray-color
+        border-width .5em
+        border-style solid none
+        margin 0 1.5em
+        padding 0 1.5em
+
+    .status-icon
+        max-width 5em
+        justify-self center
+        
+    .risk-chart
         svg
-            margin 2em 1em
-            max-width 100%
-            height auto
+            height 3em
+            width 10em
+            margin-bottom .5em
             text
                 font-family $default-font-family
     dt
-        flex-basis 20%
+        flex 1
         text-transform capitalize
         font-size 0.9em
         margin 0
@@ -57,10 +98,8 @@ fixed-field(value)
     .field-location dd
         monospacedText()
         text-transform inherit !important
-
-    .field-status dd
-        font-size 1em
-        line-height 1em
+        overflow-wrap anywhere
+        max-width 100%
 
     .field-fixed
         dd[data-value=false]
@@ -70,14 +109,30 @@ fixed-field(value)
             fixed-field(true)
 
 .finding
-    h3 // Finding title
-        text-indent -($finding-deco-s + $finding-deco-m)
-        padding 0.5em 0
-        margin 0
+    .finding-title // Finding title
+        // text-indent -($finding-deco-s + $finding-deco-m)
+        // padding 0.5em 0
+        margin 0 0 1.5em 0
         // padding-left $finding-deco-s
         font-weight bold
-        border-width $border-thicker
-        border-style solid none solid none
+        font-size 2em
+
+        span
+            display block
+
+        .title-id
+            font-size 1.25em
+            // border-width 0 0 0 .75em
+            padding-left .5em
+
+        .title-separator
+            display none
+        
+        .title-title
+            border-width .4em 0 0 0
+            border-style solid
+            padding .25em 0
+        
 
         &::before
             right 0
@@ -97,32 +152,28 @@ fixed-field(value)
 .field-fixed[data-value=true]
     fixed-field(true)
 
-// Status icon & color
+// Status    & color
 for $s in $status
     $color = colorFromStatus($s)
     $svg = statusIcon($s)
 
     .icon[data-status={$s}]
-    
-    .finding[data-risk='info']
-          *[id^='info-chart'] *
-            visibility visible
-          *[id^='gauge-'] *
-            visibility hidden
-        
-    .finding:not([data-risk='info'])
-         *[id^='info-chart'] *
-            visibility hidden
 
     .finding[data-status={$s}]
-        h3
+        .finding-title *
             border-color $color
             // svgIcon($svg,$color)
 
         .finding-header
             border-color $color
-            findingStatusChartStatus($s,$color)
-        
+            .risk-chart
+                findingStatusChartStatus($s,$color)
+         
+    
+        .status-icon
+            svg *
+                fill $color !important
+
     .field-status[data-value={$s}]  
         svgIcon($svg,$color)
         visibility hidden
@@ -135,7 +186,8 @@ for $r in $risks
     $color = colorFromRisk($r)
     .finding[data-risk={$r}]
         .finding-header
-            findingStatusChartRisk($r,$color)
+            .risk-chart
+                findingStatusChartRisk($r,$color)
 
 .field-resolution, .field-status, .field-risk
     font-size 1.125em
