@@ -194,10 +194,16 @@ for $s in $status
     
 for $r in $risks
     $color = colorFromRisk($r)
+    .finding .finding-header .risk-chart svg
+        *[id=\"icon-{$r}\"] *
+            fill $color
+            stroke none
     .finding[data-risk={$r}]
         .finding-header
             .risk-chart
                 findingStatusChartRisk($r,$color)
+
+                
 
 
 .field-resolution, .field-status, .field-risk

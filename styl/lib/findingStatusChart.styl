@@ -8,8 +8,6 @@ findingStatusChartStatus($status,$color)
                 fill $gray-color
             *[id^='icon-'] *
                 visibility hidden
-            *[id^='risk-'] *
-                fill $ligther-gray-color
            * [id=\"icon-status-{$status}\"] *
                 fill $color !important
             *[id=\"icon-{$status}\"] *
@@ -19,9 +17,6 @@ findingStatusChartStatus($status,$color)
 
 findingStatusChartRisk($risk,$color)
         svg
-            *[id=\"icon-{$risk}\"] *
-                fill $color !important
-                stroke none
             *[id^='mark-'] *
                 visibility hidden
             *[id=\"mark-{$risk}\"] *
