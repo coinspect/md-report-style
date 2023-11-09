@@ -32,18 +32,30 @@ fixed-field(value)
       height auto
 
     dt,dd
-        all unset
         display flex
-        flex-basis 100%
+        flex 1 1 100%
         margin 0
         padding 0
-        height auto
         border none
-        min-height 0
-
+        line-height 1
+        overflow: hidden;
     dt
         color $light-gray-color
         font-size .75em
+        text-transform capitalize
+        margin 0
+        text-align left
+        font-weight normal
+
+    dd
+        break-before avoid
+        font-weight bold 
+        margin-bottom 0.5em
+    
+    // show risk fields as columns
+    dd.risk-data dl div 
+        flex 1 1 auto  
+
 
     // hidden fields
     .field-status-icon, .field-risk-chart, .field-risk-data
@@ -56,7 +68,9 @@ fixed-field(value)
     // header row
     .fh-row
         display grid
-        grid-template-columns repeat(auto-fit, minmax(max(240px,40vw), 1fr));
+        grid-template-columns repeat(auto-fit, minmax(max(240px,40vw), 1fr))
+        margin-bottom 1em
+
     // header column
     .fh-col
         display flex
@@ -67,30 +81,24 @@ fixed-field(value)
         margin 0 1.5em
         padding 0 1.5em
 
+    
+    
+    .field-status-icon, .field-risk-chart
+        justify-content center
+        margin 1em 0
+
     .status-icon
         max-width 5em
-        justify-self center
-        
+    
     .risk-chart
+        justify-content center
         svg
             height 3em
             width 10em
             margin-bottom .5em
             text
                 font-family $default-font-family
-    dt
-        flex 1
-        text-transform capitalize
-        font-size 0.9em
-        margin 0
-        text-align left
 
-    dd
-        break-before avoid
-        font-weight bold
-        align-items flex-start
-        text-align left
-        white-space pre
     
     div[class^="field-"] dd
         text-transform capitalize
@@ -115,13 +123,13 @@ fixed-field(value)
         margin 0 0 1.5em 0
         // padding-left $finding-deco-s
         font-weight bold
-        font-size 2em
+        font-size 1.75em
 
         span
             display block
 
         .title-id
-            font-size 1.25em
+            font-size 1.125em
             // border-width 0 0 0 .75em
             padding-left .5em
 
@@ -162,6 +170,8 @@ for $s in $status
     .finding[data-status={$s}]
         .finding-title *
             border-color $color
+        .title-id
+            color $color
             // svgIcon($svg,$color)
 
         .finding-header
@@ -184,10 +194,17 @@ for $s in $status
     
 for $r in $risks
     $color = colorFromRisk($r)
+    .risk-chart
+        svg
+            *[id=\"icon-{$r}\"] *
+                fill inactiveColor($color)
+                stroke none
+
     .finding[data-risk={$r}]
         .finding-header
             .risk-chart
                 findingStatusChartRisk($r,$color)
+
 
 .field-resolution, .field-status, .field-risk
     font-size 1.125em

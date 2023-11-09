@@ -45,3 +45,6 @@ statusIcon($status)
 
 colorFromRisk($risk)
     convert('$' + $risk + '-color')
+
+inactiveColor($color)
+    desaturate($color,100%)

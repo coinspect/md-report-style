@@ -4,8 +4,6 @@ findingStatusChartStatus($status,$color)
         svg 
             text
                 fill $gray-color
-            path, rect
-                fill $lligther-gray-color
             *[id^='risk-'] *
                 fill $ligther-gray-color
            * [id=\"icon-status-{$status}\"] *
@@ -18,7 +16,8 @@ findingStatusChartStatus($status,$color)
 findingStatusChartRisk($risk,$color)
         svg
             *[id=\"icon-{$risk}\"] *
-                fill $color
+                fill $color !important
+                stroke none
             *[id^='mark-'] *
                 visibility hidden
             *[id=\"mark-{$risk}\"] *
