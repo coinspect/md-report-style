@@ -194,12 +194,6 @@ for $s in $status
     
 for $r in $risks
     $color = colorFromRisk($r)
-    .risk-chart
-        svg
-            *[id=\"icon-{$r}\"] *
-                fill inactiveColor($color)
-                stroke none
-
     .finding[data-risk={$r}]
         .finding-header
             .risk-chart

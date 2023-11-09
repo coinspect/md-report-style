@@ -46,5 +46,13 @@ statusIcon($status)
 colorFromRisk($risk)
     convert('$' + $risk + '-color')
 
-inactiveColor($color)
-    desaturate($color,100%)
+
+getIndex($list, $value)
+  for $val, $i in $list
+    return $i if $list[$i] == $value
+
+selectFromIndex($list, $index)
+  $selected = ()
+  for $i in ($index)..0
+    push($selected, $list[$i])
+  return $selected
