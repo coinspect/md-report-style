@@ -1,19 +1,16 @@
 .finding-list, div[class^='finding-table']
     table
-        td
-            padding .5em 1em !important
         .field-location, .field-likelihood, .field-impact
             display none
         .field-id
             font-weight bold
         .field-id,.field-risk
             white-space nowrap
-        .field-risk:not([data-value="Risk"])
-            border-style none solid
-            border-width 10px
+        .field-risk([data-value="Risk"])
+            background none
     for $r in $risks
         $color = colorFromRisk($r)
         .field-risk[data-value=\"{$r}\"]
-            border-color $color
+            riskBoxStyle($r)
             
             

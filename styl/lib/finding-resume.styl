@@ -1,4 +1,5 @@
 @require 'vars.styl'
+@require 'mixins.styl'
 
 .finding-resume
     margin 5em 2em
@@ -6,9 +7,15 @@
     table
         border-collapse collapse
 
-    /*for $r in 'high' 'medium' 'low'
+    for $r in $risks
+        $color = colorFromRisk($r)
         tr.open .field-{$r}, tr.open .field-{$r} .label, th.field-{$r}
-            color convert('$' + $r + '-color')*/
+            border-color $color
+            border-style none none solid none
+            border-width $border-thicker
+            padding 1em 0
+            color $color
+   
 
     .label
         color $light-gray-color

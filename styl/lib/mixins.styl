@@ -56,3 +56,16 @@ selectFromIndex($list, $index)
   for $i in ($index)..0
     push($selected, $list[$i])
   return $selected
+
+
+textColorFromBg($color)
+    return light($color) ? $default-color : $ligther-gray-color
+
+riskBoxStyle($risk)
+    $color = colorFromRisk($risk)
+    background  $color
+    color textColorFromBg($color)
+    padding .5em 1em !important
+    font-weight normal
+    max-width 2em
+    overflow visible
