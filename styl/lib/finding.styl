@@ -194,6 +194,7 @@ for $s in $status
     
 for $r in $risks
     $color = colorFromRisk($r)
+    // warn('risk: '+$r + '  color '+ $color)
     .finding .finding-header .risk-chart svg
         *[id=\"icon-{$r}\"] *
             fill $color
@@ -202,8 +203,11 @@ for $r in $risks
         .finding-header
             .risk-chart
                 findingStatusChartRisk($r,$color)
+                .icon-none
+                    fill black !important
 
                 
+
 
 
 .field-resolution, .field-status, .field-risk

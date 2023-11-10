@@ -7,7 +7,10 @@ findingStatusChartStatus($status,$color)
             text
                 fill $gray-color
             *[id^='icon-'] *
-                visibility hidden
+                stroke $light-gray-color
+                stroke-width  2px
+                visibility visible
+                fill none
            * [id=\"icon-status-{$status}\"] *
                 fill $color !important
             *[id=\"icon-{$status}\"] *
@@ -21,15 +24,18 @@ findingStatusChartRisk($risk,$color)
                 visibility hidden
             *[id=\"mark-{$risk}\"] *
                 visibility visible !important
-            findingsRiskChart($risk)
+            findingsRiskChart($risk,$color)
                   
 
-findingsRiskChart($risk)
+findingsRiskChart($risk,$color)
     $index = getIndex($risks,$risk)
     $selected = selectFromIndex($risks,$index)
     // warn('selected:' + $selected)
     for $r in $selected
        *[id=\"icon-{$r}\"] *
+            stroke none
             visibility visible
+            fill $color !important
+            
 
             
