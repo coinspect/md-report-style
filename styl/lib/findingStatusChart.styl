@@ -24,10 +24,10 @@ findingStatusChartRisk($risk,$color)
                 visibility hidden
             *[id=\"mark-{$risk}\"] *
                 visibility visible !important
-            findingsRiskChart($risk,$color)
+            findingsRiskChart($risk)
                   
 
-findingsRiskChart($risk,$color)
+findingsRiskChart($risk)
     $index = getIndex($risks,$risk)
     $selected = selectFromIndex($risks,$index)
     // warn('selected:' + $selected)
@@ -35,7 +35,7 @@ findingsRiskChart($risk,$color)
        *[id=\"icon-{$r}\"] *
             stroke none
             visibility visible
-            fill $color !important
+            fill colorFromRisk($r)
             
 
             
