@@ -112,6 +112,15 @@ fixed-field(value)
         overflow-wrap anywhere
         max-width 100%
 
+    // Hide location label when location is empty
+    dl:has(dd[data-value=""]), dl:has(dd:not([data-value]))
+        .field-location 
+            dt[data-value='location']
+                display none
+    
+    
+
+
     .field-fixed
         dd[data-value=false]
             fixed-field(false)
