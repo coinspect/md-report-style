@@ -6,7 +6,7 @@
             font-weight bold
         .field-id,.field-risk
             white-space nowrap
-        .field-risk([data-value="Risk"])
+        .field-risk[data-value="Risk"]
             background none
     for $r in $risks
         $color = colorFromRisk($r)
