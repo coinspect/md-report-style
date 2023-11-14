@@ -80,14 +80,14 @@ fixed-field(value)
         border-color $ligther-gray-color
         border-width .5em
         border-style solid none
-        margin .5em 1.5em
-        padding 0 1.5em
+        margin $margin-small $margin-medium
+        padding 0 $margin-medium
 
     
     
     .field-status-icon, .field-risk-chart
         justify-content center
-        margin 1em 0
+        margin $margin 0
 
     .status-icon
         max-width 5em
@@ -98,7 +98,7 @@ fixed-field(value)
         svg
             height 3em
             width 10em
-            margin-bottom .5em
+            margin-bottom $margin-small
             text
                 font-family $default-font-family
 
@@ -106,20 +106,14 @@ fixed-field(value)
     div[class^="field-"] dd
         text-transform capitalize
 
-    .field-location dd
+    .field-location ul
         monospacedText()
         text-transform inherit !important
         overflow-wrap anywhere
         max-width 100%
-
-    // Hide location label when location is empty
-    dl:has(dd[data-value=""]), dl:has(dd:not([data-value]))
-        .field-location 
-            dt[data-value='location']
-                display none
-    
-    
-
+        list-style none
+        li
+            margin 0 0 $margin-small 0
 
     .field-fixed
         dd[data-value=false]
