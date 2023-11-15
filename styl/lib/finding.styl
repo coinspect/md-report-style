@@ -189,13 +189,6 @@ for $s in $status
         .status-icon
             svg *
                 fill $color !important
-
-    .field-status[data-value={$s}]  
-        visibility hidden
-        font-size 0px
-        &::before
-            font-size 1rem
-            visibility visible
     
 for $r in $risks
     $color = colorFromRisk($r)
