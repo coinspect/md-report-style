@@ -29,6 +29,11 @@
     tr.reported, tr.total
         border-style solid none solid none
 
+    .status-icon
+        svg
+            max-width 2em
+            height 2em
+
 
 
 findingResumeTHStyle($color)
@@ -52,3 +57,8 @@ findingResumeTHStyle($color)
         $color = colorFromStatus($s)
         th.field-{$s}
             findingResumeTHStyle($color)
+            svg *
+                fill $color
+        tr.total
+            td.field-{$s}
+                color $color
