@@ -1,6 +1,9 @@
 .finding-list, div[class^='finding-table']
     table
+        border-collapse collapse
         min-width 100%
+        td
+            padding $margin-small
         .field-location, .field-likelihood, .field-impact
             display none
         .field-id
@@ -15,5 +18,16 @@
         $color = colorFromRisk($r)
         .field-risk[data-value=\"{$r}\"]
             riskBoxStyle($r)
+    
+for $s in $status
+    $color = colorFromStatus($s)
+    .finding-table-status-{$s}
+        table
+            td
+                border-bottom $border-thin solid $color
+            tr:first-child .field-id
+                border none
             
-            
+            .field-id
+                color $color
+                border-bottom $border-thicker solid $color 
