@@ -1,22 +1,11 @@
 @require 'vars.styl'
 @require 'mixins.styl'
 
-.finding-resume
+ div[class^='finding-resume']
     margin 5em 2em
 
     table
         border-collapse collapse
-
-for $r in $risks
-    $color = colorFromRisk($r)
-    th.field-{$r}
-    //tr.open .field-{$r}, tr.open .field-{$r} .label, th.field-{$r}
-        border-color $color
-        border-style none none solid none
-        border-width $border-thicker
-        padding 1em 0
-        color $color
-   
 
     .label
         color $light-gray-color
@@ -31,11 +20,35 @@ for $r in $risks
             font-size 1.5em
             font-weight bold
 
-    tr.open, tr.reported
+    tr.open, tr.reported, tr.total
         border $table-border
 
     tr.open
         border-style solid none none none
 
-    tr.reported
+    tr.reported, tr.total
         border-style solid none solid none
+
+
+
+findingResumeTHStyle($color)
+    //tr.open .field-{$r}, tr.open .field-{$r} .label, th.field-{$r}
+    border-color $color
+    border-style none none solid none
+    border-width $border-thicker
+    padding 1em 0
+    color $color
+
+// risk table
+.finding-resume
+    for $r in $risks
+        $color = colorFromRisk($r)
+        th.field-{$r}
+            findingResumeTHStyle($color)
+
+// status table
+.finding-resume-status
+    for $s in $status
+        $color = colorFromStatus($s)
+        th.field-{$s}
+            findingResumeTHStyle($color)
