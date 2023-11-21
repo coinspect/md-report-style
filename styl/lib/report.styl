@@ -62,23 +62,16 @@
 
     page-break-after always
 
-  h1
-    font-size 2.5em
+// set headers size
+  for $hs, $hk in $h-sizes
+    h{$hk+1}
+      font-size $hs
+
   h2
-    font-size 2.125em
     page-break-before always
 
   h2:first-of-type
     page-break-before auto
-
-  h3
-    font-size 1.75em
-  h4
-    font-size 1.5em
-  h5
-    font-size 1.125em
-  h6
-    font-size 1em
   
   .finding
     break-inside avoid
