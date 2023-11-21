@@ -5,6 +5,8 @@
 @require 'finding-resume.styl'
 @require 'report-header.styl'
 @require 'mixins.styl'
+@require 'toc.styl'
+
 
 .report, .concert-doc
   font $default-font
@@ -45,20 +47,7 @@
     color error
 
   .table-of-contents
-    ul
-      li
-        list-style none
-        margin 0.5em 0 0 0
-
-        a
-          links()
-          background none
-        
-        // hide findings on TOC
-      a[href="#detailed-findings"] + ul
-          display none
-
-
+    tocStyle()
 
     page-break-after always
 
