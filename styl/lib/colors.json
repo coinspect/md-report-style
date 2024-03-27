@@ -1,8 +1,8 @@
 {
   "black": "#000000",
   "white": "#ffffff",
-  "brand": "#e5b136",
-  "label": "#46bd82",
+  "brand": "#ed0653",
+  "label": "#2bbc7a",
   "info": "#d68292",
   "warn": "#f1c252",
   "error": "#ad0424",
@@ -11,7 +11,7 @@
   "darkGray": "#434343",
   "lightGray":"#999999",
   "ligtherGray":"#e8e6e6",
-  "medium":"#d7667b",
-  "low":"#e4abb6"
+  "medium":"#f3598c",
+  "low":"#f9acc6"
 }
 
