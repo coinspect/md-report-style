@@ -36,12 +36,11 @@ async function fetchAndEncode(url) {
   
   // Usage example
   convertFontFaces(
-    "https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap",
-    "styl/nunito_base64.css"
-  );
-
-  convertFontFaces(
-    "https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap",
-    "styl/roboto_base64.css"
+    "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
+    "styl/inter_base64.css"
   );
   
+  convertFontFaces(
+    "https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap",
+    "styl/roboto_mono_base64.css"
+  )
