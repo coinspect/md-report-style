@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/tmp
     docker:
-      - image: cimg/node:16.16.0
+      - image: cimg/node:18.20.4
 
     steps:
       - checkout
