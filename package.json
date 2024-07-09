@@ -1,6 +1,6 @@
 {
   "name": "md-report-style",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "CSS style for reports",
   "type": "module",
   "files": [
